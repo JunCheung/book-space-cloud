@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: bookspace-gateway-server
+
+  profiles:
+    active: local
+
+server:
+  port: 38080
+
+logging:
+  file:
+    name: ${user.home}/logs/${spring.application.name}.log # 日志文件名，全路径

@@ -1,0 +1,20 @@
+--- #################### Registry ####################
+
+spring:
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+      discovery:
+        namespace: dev
+
+--- #################### Config ####################
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: dev
+        group: DEFAULT_GROUP
+        name:
+        file-extension: yaml
