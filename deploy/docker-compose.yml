@@ -1,0 +1,36 @@
+version: '3'
+services:
+  nacos:
+    image: nacos/nacos-server:v2.2.2-slim
+    ports:
+      - "28848:8848"
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+    restart: on-failure
+
+  gateway:
+    build:
+      context: ../bookspace-gateway/
+      dockerfile: Dockerfile
+    ports:
+      - "38080:38080"
+    depends_on:
+      - nacos
+    environment:
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos:8848
+      - SPRING_PROFILES_ACTIVE=dev
+    restart: on-failure
+
+  book-server:
+    build:
+      context: ../bookspace-module-book/bookspace-module-book-biz/
+      dockerfile: Dockerfile
+    ports:
+      - "38082:38082"
+    depends_on:
+      - nacos
+    environment:
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR=nacos:8848
+      - SPRING_PROFILES_ACTIVE=dev
+    restart: on-failure

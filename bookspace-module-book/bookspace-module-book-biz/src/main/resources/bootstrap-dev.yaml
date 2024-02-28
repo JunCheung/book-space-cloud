@@ -1,0 +1,22 @@
+--- #################### Registry ####################
+
+spring:
+  cloud:
+    nacos:
+      server-addr: ${SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR}
+      discovery:
+        namespace: public
+        metadata:
+          version: 1.0.0
+
+--- #################### Config ####################
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: ${SPRING_CLOUD_NACOS_DISCOVERY_SERVER_ADDR}
+        namespace: public
+        group: DEFAULT_GROUP
+        name: ${spring.application.name}
+        file-extension: yaml
