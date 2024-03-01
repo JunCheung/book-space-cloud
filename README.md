@@ -14,7 +14,7 @@ This project is a Book Management application. It is developed using Java, SQL, 
 First, clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/bookspace-module-book.git
+git clone https://github.com/JunCheung/book-space-cloud.git
 ```
 
 ## Initial
