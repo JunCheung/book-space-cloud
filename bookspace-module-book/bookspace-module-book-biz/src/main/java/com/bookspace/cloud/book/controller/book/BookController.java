@@ -27,8 +27,8 @@ public class BookController {
 
     @PostMapping("/create")
     @Operation(summary = "Create book")
-    public CommonResult<Long> createBook(@Valid @RequestBody BookCreateReqVO createReqVO) {
-        return CommonResult.success(bookService.createBook(createReqVO));
+    public CommonResult<String> createBook(@Valid @RequestBody BookCreateReqVO createReqVO) {
+        return CommonResult.success(String.valueOf(bookService.createBook(createReqVO)));
     }
 
     @GetMapping("/get/{id}")
